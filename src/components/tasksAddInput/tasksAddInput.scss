@@ -1,0 +1,32 @@
+.addform {
+    &_wrapper {
+        position: relative;
+        height: 50px;
+    }
+
+    &_input {
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        border-radius: 50px;
+        text-indent: 50px;
+        font-size: 20px;
+        &:focus {
+            border: 3px solid navy;
+            background-color: 000;
+        }
+    }
+
+    &_btn {
+        transition: all 1s ease;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        font-size: 50px;
+        color: navy;
+        &:hover {
+            color: black;
+                transform: scale(1.1);
+        }
+    }
+}
