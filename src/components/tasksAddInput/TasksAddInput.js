@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { useSelector  } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { taskCreated, selectAll } from "../tasksList/tasksSlice";
 
@@ -14,8 +14,8 @@ const TasksAddForm = () => {
 
     const calculateEmptyTasks = (tasks) => {
         let counter = 0;
-        tasks.forEach(task => {
-            if (task.name.includes('No name tracker #')) {
+        tasks.forEach((task) => {
+            if (task.name.includes("No name tracker #")) {
                 counter++;
             }
         });
@@ -26,11 +26,14 @@ const TasksAddForm = () => {
         e.preventDefault();
         const newTask = {
             id: uuidv4(),
-            name: taskName || ('No name tracker #' + (calculateEmptyTasks(tasks) +1)),
+            name:
+                taskName ||
+                "No name tracker #" + (calculateEmptyTasks(tasks) + 1),
             date: new Date().toISOString(),
             createDate: new Date().toISOString(),
             dateDiff: 0,
             isPlay: true,
+            timer: null,
         };
         dispatch(taskCreated(newTask));
         setTaskName("");
